@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class PlayActivity extends AppCompatActivity {
-    public static final String TAG = MainActivity.class.getSimpleName();
     private Button mViewResults;
     private EditText mEditTextNoun;
     private EditText mEditTextAdj;
@@ -31,10 +30,10 @@ public class PlayActivity extends AppCompatActivity {
                 String noun = mEditTextNoun.getText().toString();
                 String adj = mEditTextAdj.getText().toString();
                 String verb = mEditTextVerb.getText().toString();
-                Log.d(TAG, noun);
-                Log.d(TAG, adj);
-                Log.d(TAG, verb);
                 Intent intent = new Intent(PlayActivity.this, ResultsActivity.class);
+                intent.putExtra("noun", noun);
+                intent.putExtra("adj", adj);
+                intent.putExtra("verb", verb);
                 startActivity(intent);
             }
         });
